@@ -98,12 +98,12 @@ constructor(items: List<GroupContainer<*>>) :
         mItems.forEachIndexed { parentPosition, item ->
             if (position == absolutePosition) {
                 return HolderTypeWithPosition(
-                        GROUP_VIEW_TYPE,
-                        absolutePosition,
-                        parentPosition,
-                        item,
-                        0,
-                        null
+                    GROUP_VIEW_TYPE,
+                    absolutePosition,
+                    parentPosition,
+                    item,
+                    0,
+                    null
                 )
             }
             if (absolutePosition + item.groupItemsCount - 1 < position) {
@@ -112,12 +112,12 @@ constructor(items: List<GroupContainer<*>>) :
             }
             val childPosition = position - absolutePosition - 1
             return HolderTypeWithPosition(
-                    CHILD_VIEW_TYPE,
-                    absolutePosition,
-                    parentPosition,
-                    item,
-                    childPosition,
-                    item.items?.get(childPosition)
+                CHILD_VIEW_TYPE,
+                absolutePosition,
+                parentPosition,
+                item,
+                childPosition,
+                item.items?.get(childPosition)
             )
         }
         return null
@@ -140,12 +140,12 @@ constructor(items: List<GroupContainer<*>>) :
     }
 
     protected class HolderTypeWithPosition(
-            var type: Int,
-            val absolutePos: Int,
-            val groupPosition: Int,
-            val group: GroupContainer<*>,
-            val childPos: Int,
-            val child: Any?
+        var type: Int,
+        val absolutePos: Int,
+        val groupPosition: Int,
+        val group: GroupContainer<*>,
+        val childPos: Int,
+        val child: Any?
     )
 
     companion object {

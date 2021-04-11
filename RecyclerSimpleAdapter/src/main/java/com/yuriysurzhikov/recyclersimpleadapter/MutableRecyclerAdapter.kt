@@ -5,7 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class MutableRecyclerAdapter<T, Holder>
 @JvmOverloads
 constructor(items: List<T>? = emptyList()) :
-        RecyclerView.Adapter<Holder>(), IMutableAdapter<T> where Holder : RecyclerView.ViewHolder {
+        RecyclerView.Adapter<Holder>(),
+    IMutableAdapter<T> where Holder : RecyclerView.ViewHolder {
 
     @JvmField
     protected val mItems = mutableListOf<T>()

@@ -39,7 +39,12 @@ constructor(items: List<ExpandableGroupContainer<*>>) : MultiTypeGroupedRecycler
     override fun setItems(list: List<GroupContainer<*>>?) {
         if (canExpandCollapse && list != null) {
             expandableItems.clear()
-            expandableItems.addAll(list.map { ExpandableGroupContainer(it.title, it.items) })
+            expandableItems.addAll(list.map {
+                ExpandableGroupContainer(
+                    it.title,
+                    it.items
+                )
+            })
             notifyDataSetChanged()
         } else {
             super.setItems(list)
@@ -71,11 +76,12 @@ constructor(items: List<ExpandableGroupContainer<*>>) : MultiTypeGroupedRecycler
             expandableItems.forEachIndexed { parentPosition, item ->
                 if (position == absolutePosition) {
                     return HolderTypeWithPosition(
-                            GROUP_VIEW_TYPE, absolutePosition,
-                            parentPosition,
-                            item,
-                            0,
-                            null
+                        GROUP_VIEW_TYPE,
+                        absolutePosition,
+                        parentPosition,
+                        item,
+                        0,
+                        null
                     )
                 }
                 if (!item.isExpanded) {
@@ -88,12 +94,12 @@ constructor(items: List<ExpandableGroupContainer<*>>) : MultiTypeGroupedRecycler
                 }
                 val childPosition = position - absolutePosition - 1
                 return HolderTypeWithPosition(
-                        CHILD_VIEW_TYPE,
-                        absolutePosition,
-                        parentPosition,
-                        item,
-                        childPosition,
-                        item.items?.get(childPosition)
+                    CHILD_VIEW_TYPE,
+                    absolutePosition,
+                    parentPosition,
+                    item,
+                    childPosition,
+                    item.items?.get(childPosition)
                 )
             }
             return null

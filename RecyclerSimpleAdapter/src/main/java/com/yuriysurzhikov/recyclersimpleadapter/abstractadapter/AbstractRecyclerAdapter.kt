@@ -47,7 +47,7 @@ abstract class AbstractRecyclerAdapter<T, VH : AbstractRecyclerAdapter.AbstractV
     }
 
     abstract class AbstractViewHolder<T>(view: View) : RecyclerView.ViewHolder(view),
-            IDataHolder<T> {
+        IDataHolder<T> {
 
         private var mItem: T? = null
         protected var mListener: OnItemClickListener<T>? = null
