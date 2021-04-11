@@ -1,8 +1,11 @@
-package com.yuriysurzhikov.recyclersimpleadapter
+package com.yuriysurzhikov.recyclersimpleadapter.abstractadapter
 
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.recyclerview.widget.RecyclerView
+import com.yuriysurzhikov.recyclersimpleadapter.IDataContainer
+import com.yuriysurzhikov.recyclersimpleadapter.IDataHolder
+import com.yuriysurzhikov.recyclersimpleadapter.OnItemClickListener
 
 /**
  * AbstractRecyclerAdapter provide more simple and abstract behavior for any RecyclerViewAdapter.
@@ -44,7 +47,7 @@ abstract class AbstractRecyclerAdapter<T, VH : AbstractRecyclerAdapter.AbstractV
     }
 
     abstract class AbstractViewHolder<T>(view: View) : RecyclerView.ViewHolder(view),
-        IDataHolder<T> {
+            IDataHolder<T> {
 
         private var mItem: T? = null
         protected var mListener: OnItemClickListener<T>? = null
